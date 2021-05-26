@@ -1,24 +1,35 @@
-
-                function hello(ac){
-                    var d= document.querySelector('body');
-        var f = document.querySelectorAll('a');
-        var i = 0;
-        if(ac.value === '밤'){
-         d.style.backgroundColor = 'black';
-            d.style.color = 'white';
-            while(i < f.length){
-                f[i].style.color = 'powderblue';
-                i = i + 1;
-            }
-            ac.value = '낮';
-        }
-        else{
-            d.style.backgroundColor = 'white';
-            d.style.color = 'black';
-            while(i < f.length){
-                f[i].style.color = 'blue';
-                i = i + 1;
-            }
-            ac.value = '밤';
-        }
-    }           
+var Links = {
+    setColor:function(color){
+    // var alist = document.querySelectorAll('a');
+    // var i = 0;
+    // while(i < alist.length){
+    //   alist[i].style.color = color;
+    //   i = i + 1;
+    // }
+    $('a').css('color', color);
+  }
+}
+var Body = {
+  setColor:function (color){
+    //document.querySelector('body').style.color = color;
+    $('body').css('color', color);
+  },
+  setBackgroundColor:function (color){
+    // document.querySelector('body').style.backgroundColor = color;
+    $('body').css('backgroundColor', color);
+  }
+}
+function nightDayHandler(self){
+  var target = document.querySelector('body');
+  if(self.value === 'night'){
+    Body.setBackgroundColor('black');
+    Body.setColor('white');
+    self.value = 'day';
+    Links.setColor('powderblue');
+  } else {
+    Body.setBackgroundColor('white');
+    Body.setColor('black');
+    self.value = 'night';
+    Links.setColor('blue');
+  }
+}
