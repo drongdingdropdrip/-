@@ -17,11 +17,9 @@ function nightDayHandler(drop){
     Body.setBackgroundColor('black');
     Body.setColor('white');
     drop.value = 'day';
-    Links.setColor('powderblue');
   } else {
     Body.setBackgroundColor('white');
     Body.setColor('black');
     drop.value = 'night';
-    Links.setColor('blue');
   }
 }
