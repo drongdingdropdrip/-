@@ -3,14 +3,76 @@
     <head>
         <title>제작자:김동현</title>
         <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/d3js/6.7.0/d3.min.js"></script>
-        <script src="https://drongdingdropdrip.github.io/-/color.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <script>var Links = {
+            setColor:function(color){
+            $('a').css('color', color);
+          }
+        }
+        var Body = {
+          setColor:function (color){
+            $('body').css('color', color);
+          },
+          setBackgroundColor:function (color){
+            $('body').css('backgroundColor', color);
+          }
+        }
+        function full(drop){
+          var target = document.querySelector('body');
+          if(self.value === 'night'){
+            Body.setBackgroundColor('black');
+            Body.setColor('white');
+            drop.value = 'day';
+            Links.setColor('powderblue');
+          } else {
+            Body.setBackgroundColor('white');
+            Body.setColor('black');
+            drop.value = 'night';
+            Links.setColor('blue');
+          }
+        }</script> -->
+        <!-- <script src="https://drongdingdropdrip.github.io/-/color.js"></script> -->
     </head>
     <body>
         <h1>주식시즌2 주식판</h1>
         <ul>
             <li>대박이야!</li>
         </ul>
-        <input type="button" value="낮" onclick="nightDayHandler(this);">
+        <script>
+        </script>
+        <!-- <input type="button" value="낮" onclick="var Links = {
+          setColor:function(color){
+          $('a').css('color', 'color');
+        }
+      }
+      var Body = {
+        setColor:function (color){
+          $('body').css('color', 'color');
+        },
+        setBackgroundColor:function (color){
+          $('body').css('backgroundColor', 'color');
+        }
+      }
+      function full(drop){
+        var target = document.querySelector('body');
+        if(self.value === 'night'){
+          Body.setBackgroundColor('black');
+          Body.setColor('white');
+          drop.value = 'day';
+        } else {
+          Body.setBackgroundColor('white');
+          Body.setColor('black');
+          drop.value = 'night';
+        }
+      }
+      full(this);"> -->
+      <input type="button" value="night" onclick="if(this.value === 'night'){
+        $('body').css('color','white');
+        $('body').css('backgroundColor','black');
+        this.value='day';}
+        else{
+        $('body').css('color','black');
+        $('body').css('backgroundColor','white');
+        this.value='night'}">
     </body>
 </html>
