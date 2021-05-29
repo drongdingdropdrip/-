@@ -39,7 +39,14 @@
             <li>대박이야!</li>
         </ul>
         <script>
+          var i = 0;
+          var blockchain = ['양평','두건','청원','동동주식'];
+          while(blockchain.length>i){
+            document.write("<li>"+blockchain[i]+"</li>");
+            i = i + 1;
+          }
         </script>
+
         <!-- <input type="button" value="낮" onclick="var Links = {
           setColor:function(color){
           $('a').css('color', 'color');
