@@ -8,42 +8,16 @@
     <body>
         <h1>주식시즌2 주식판</h1>
         <ul>
+            <li>대박이야!</li>
         </ul>
         <script>
           var i = 0;
-          var blockchain = ['양평','두건','청원','동동주식','성준'];
+          var blockchain = ['양평','두건','청원','동동주식'];
           while(blockchain.length>i){
-            document.write("<li>"+blockchain[i]+"</li>");
+            document.write("<li>"+blockchain[i]+"</li>"+document.write(Math.floor (Math.random () * 10)));
             i = i + 1;
           }
         </script>
-
-        <!-- <input type="button" value="낮" onclick="var Links = {
-          setColor:function(color){
-          $('a').css('color', 'color');
-        }
-      }
-      var Body = {
-        setColor:function (color){
-          $('body').css('color', 'color');
-        },
-        setBackgroundColor:function (color){
-          $('body').css('backgroundColor', 'color');
-        }
-      }
-      function full(drop){
-        var target = document.querySelector('body');
-        if(self.value === 'night'){
-          Body.setBackgroundColor('black');
-          Body.setColor('white');
-          drop.value = 'day';
-        } else {
-          Body.setBackgroundColor('white');
-          Body.setColor('black');
-          drop.value = 'night';
-        }
-      }
-      full(this);"> -->
       <input type="button" value="night" onclick="if(this.value === 'night'){
         $('body').css('color','white');
         $('body').css('backgroundColor','black');
