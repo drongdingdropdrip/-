@@ -4,6 +4,16 @@
         <title>제작자:김동현</title>
         <meta charset="utf-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+          li{
+            color:brown;
+            text-decoration:none;
+            font-size:15px;
+            }
+            h1{
+              text-align:center;
+            }
+        </style>
     </head>
     <body>
         <h1>주식시즌2 주식판</h1>
@@ -12,13 +22,12 @@
           var i = 0;
           var blockchain = ['양평','두건','청원','동동주식'];
           while(blockchain.length>i){
-            document.write("<li>"+blockchain[i]+Math.floor (Math.random () * 100))+"</li>"
+            document.write("<li>"+blockchain[i]+Math.floor (Math.random () * 100)+"</li>");
             i = i + 1;
           }
         </script>
         </ul>
-      <br>
-        <input type="button" value="night" onclick="if(this.value === 'night'){
+      <input type="button" value="night" onclick="if(this.value === 'night'){
         $('body').css('color','white');
         $('body').css('backgroundColor','black');
         this.value='day';}
