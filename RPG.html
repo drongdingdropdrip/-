@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>제작자:김동현</title>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+          li{
+            color:brown;
+            text-decoration:none;
+            font-size:15px;
+            }
+            h1{
+              text-align:center; /*위치*/
+              /* block level element(tag){화면 전체}*/
+              border-bottom:5px solid red; 
+              /* display:inline; */
+              margin: 0PX;
+            }
+            .aq{
+              color:aqua;
+              text-align:center;
+            }
+            a{
+              /* inline element(tag){자신에 크기만큼}*/
+              border:10px solid red;
+            }
+            body{
+              margin: 0px;
+            }
+            ol{
+              border-right:5px solid red;
+              width:100px;
+              margin: 0px;
+              padding: 18px;
+              padding-bottom: 1000px;
+            }
+            #mfg{
+              display: grid;
+              grid-template-columns: 150px 1fr;
+            }
+            p{
+              margin-top:5px;
+              color:deepskyblue;
+            }
+        </style>
+    </head>
+    <body>
+      <h1>동동RPG</h1>
+      <span id="mfg"><!-- my first grid=mfg -->
+        <ol>
+          <li>업데이트 내역</li>
+          <li>업데이트 내역</li>
+          <li>업데이트 내역</li>
+          <li>업데이트 내역</li>
+          <li>업데이트 내역</li>
+          <li>업데이트 내역</li>
+        </ol>
+        <p>최근내역:아이템 NPC와 RPG3,4를 만듬</p>
+        </span>
+        <!-- <script>
+          var i = 0;
+          var blockchain = ['양평','두건','청원','동동주식'];
+          while(blockchain.length>i){
+            document.write("<li>"+blockchain[i]+Math.floor (Math.random () * 100)+"</li>");
+            i = i + 1;
+          }
+        </script> -->
+      <h2 class="aq"><a href="https://opentutorials.org">기술을 배우고 싶다면?</a></h2>
+    </body>
+</html>
