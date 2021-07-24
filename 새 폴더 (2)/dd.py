@@ -1,10 +1,11 @@
 #불러오기
+from typing import Collection
 import pygame
 import random
 import math
 
 #초기화
-pygame.mixer.init()
+pygame.init()
 
 #스크린 만들기
 screen = pygame.display.set_mode((900, 800))
@@ -20,21 +21,13 @@ playerX = 336
 playerY = 700
 playerx_change = 0
 # 적
-badimg = []
-badX = []
-badY = []
-badx_change = []
-bady_change = []
-num_of_bad = 6
-
-for i in range(num_of_bad):
-    badimg.append(pygame.image.load('monster.png'))
-    badX.append(random.randint(0, 835))
-    badY.append(random.randint(50, 300))
-    badx_change.append(1)
-    bady_change.append(40)
+badimg = pygame.image.load('monster.png')
+badX = random.randint(0, 835)
+badY = random.randint(50, 400)
+badx_change = 1
+bady_change = 40
 #배경화면 불러오기
-background = pygame.image.load('happybg.jpg')
+background = pygame.image.load('bg.jpg')
 # 총알 설정
 ammoImg = pygame.image.load('ammo.png')
 ammoX = 336
@@ -43,22 +36,15 @@ ammox_change = 1
 ammoy_change = 3
 ammo_state = "ready"
 
-score_value = 0
-font = pygame.font.Font('freesansbold.ttf',32)
-
-textX = 10
-textY = 10
+score = 0
 
 #생명체 소환 함수
-def seetext(x, y):
-    score = font.render("Score : " + str(score_value), True, (0, 0, 0))
-    screen.blit(score, (x, y))
-#플레이어
+   #플레이어
 def gamer(x, y):
     screen.blit(playerimg, (x, y))
    #적
-def bad(x, y, i):
-    screen.blit(badimg[i], (x, y))
+def bad(x, y):
+    screen.blit(badimg, (x, y))
    # 총알
 def summon_ammo(x, y):
     global ammo_state
@@ -70,9 +56,6 @@ def iscollision(ammox,ammoy,mobx,moby):
         return True
     else:
         return False
-def seetext(x, y):
-    score = font.render("Score : " + str(score_value), True, (52, 210, 235))
-    screen.blit(score, (x, y))
 while running:
     screen.fill((255, 255, 255))
     screen.blit(background, (0, 0))
@@ -101,22 +84,13 @@ while running:
     elif playerX >= 836:
         playerX = 836
     #적 튕기기
-    for i in range(num_of_bad):
-        badX[i] += badx_change[i]
-        if badX[i] <= 0.5:
-            badx_change[i] = 1
-            badY[i] += bady_change[i]
-        elif badX[i] >= 835:
-            badx_change[i] = -1
-            badY[i] += bady_change[i]
-        Collection = iscollision(ammoX, ammoY, badX[i], badY[i])
-        if Collection:
-            ammoY = 700
-            ammo_state = "ready"
-            score_value += 1
-            badX[i] = random.randint(0, 835)
-            badY[i] = random.randint(50, 400)
-        bad(badX[i], badY[i], i)
+    badX += badx_change
+    if badX <= 0.5:
+        badx_change = 0.7
+        badY += bady_change
+    elif badX >= 835:
+        badx_change = -0.7
+        badY += bady_change
     #총알
     if ammoY <= 0:
         ammoY = 700
@@ -124,6 +98,14 @@ while running:
     if ammo_state is "summon":
         summon_ammo(ammoX, ammoY)
         ammoY -= ammoy_change
+    Collection = iscollision(ammoX, ammoY, badX, badY)
+    if Collection:
+        ammoY = 700
+        ammo_state = "ready"
+        score += 1
+        print(score)
+        badX = random.randint(0, 835)
+        badY = random.randint(50, 400)
+    bad(badX, badY)
     gamer(playerX, playerY)
-    seetext(textX, textY)
     pygame.display.update()
