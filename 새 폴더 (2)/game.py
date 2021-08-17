@@ -36,7 +36,7 @@ for i in range(num_of_bad):
     badX.append(random.randint(0, 835))
     badY.append(random.randint(50, 300))
     badx_change.append(0.7)
-    bady_change.append(40)
+    bady_change.append(50)
 #배경화면 불러오기
 background = pygame.image.load('happybg.jpg')
 #소리
@@ -57,11 +57,12 @@ font = pygame.font.Font('freesansbold.ttf',32)
 textX = 10
 textY = 10
 
+revive_textX = 720
+revive_textY = 10
+
 over_font = pygame.font.Font('freesansbold.ttf',70)
 
 gameover = 0
-
-revive_font = pygame.font.Font('freesansbold.ttf',30)
 
 #생명체 소환 함수
 #플레이어
@@ -98,7 +99,7 @@ def notgameover():
         badY[j] = i
 def revive_text():
     if gameover == 1:
-        revive_text = revive_font.render("Press the 'R' key on your keyboard to respawn", True, (129, 0, 209))
+        revive_text = font.render("Press the 'R' key on your keyboard to respawn", True, (129, 0, 209))
         screen.blit(revive_text, (110, 500))
 while running:
     screenfill_blit()
